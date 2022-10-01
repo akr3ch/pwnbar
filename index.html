@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<title>PWNBAR</title>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('./img/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+<code>
+<h2 style="text-align: center;"><font color=red>PWNBAR</font></h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="hacktheworld.." title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="#">Application Programming Interface - <font color="green">API</font></a></li>
+  <li><a href="#">Cross Site Scripting - <font color="green"><font color="green">XSS</font></a></li>
+  <li><a href="#">Server Side Template injection - <font color="green">SSTI</font></a></li>
+  <li><a href="#">Insecure Desialization - <font color="green">ID</font></a></li>
+  <li><a href="#">XML External Entity - <font color="green">XXE</font></a></li>
+  <li><a href="#">Local File Inclution - <font color="green">LFI</font></a></li>
+  <li><a href="#">Server Side Request Forgery - <font color="green">SSRF</font></a></li>
+  <li><a href="#">Client Side Request Forgery - <font color="green">CSRF</font></a></li>
+  <li><a href="#">Prototype Pollution - <font color="green">PP</font></a></li>
+  <li><a href="#">Remote Code Execution - <font color="green">RCE</font></font></a></li>
+  <li><a href="#">Structured Query Language injection - <font color="green">SQLi</font></a></li>
+  <li><a href="#">Other Payloads Collection</a></li>
+  <li><a href="#">CVE Collection</a></li>
+  <li><a href="#">HTTP Cookies</a></li>
+  <li><a href="#">One Liners</a></li>
+  <li><a href="#">CMS exploitation tricks</a></li>
+  <li><a href="#">Extra Notes</a></li>
+</ul>
+</code>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
